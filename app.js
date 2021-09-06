@@ -5,7 +5,7 @@ const vm = Vue.createApp({
             rotateX:0,
             rotateY:0,
             rotateZ:0,
-
+            // colourC:0,
         }
     },
     computed:{
@@ -15,16 +15,32 @@ const vm = Vue.createApp({
                 perspective(${this.perspective}px)
                 rotateX(${this.rotateX}deg)
                 rotateY(${this.rotateY}deg)
-                rotateZ(${this.rotateZ}deg)`,
+                rotateZ(${this.rotateZ}deg)`
+                //  colourC(${this.colourC}%)
+                
             }
-            }
-           },
+           }
+        },
     methods:{
         reset(){
           this.perspective = 100
           this.rotateX = 0
           this.rotateY = 0
-          this.rotateZ = 0  
-        }
+          this.rotateZ = 0 
+        //   this.colourC = 0 
+        },
+        copy(){
+            const el = document.createElement('textarea')
+
+            el.setAttribute('readonly', '')
+            el.style.position = 'absolute'
+            el.style.left = '-9999px'
+            el.value = `transform: ${this.box.transform}`
+
+            document.body.appendChild(el)
+            el.select()
+            document.execCommand('copy')
+            document.body.removeChild(el)
+            }
         }
     }).mount('#app')

@@ -24,12 +24,16 @@
           <label>rotateZ: {{rotateZ}}deg; </label>
           <input type="range" min="-180" max="180" v-model="rotateZ" />
 
+          <!-- <label>Change Colour: {{colourC}}%;</label>
+          <input type="range" min="0" max="1000" v-model="colourC"> -->
+
           <button type="button" @click.prevent = 'reset'>Reset</button>
-          <button type="button">Copy</button>
+          <button type="button" @click.prevent = 'copy'>Copy</button>
         </div>
       </section>
       <section class="output">
         <div class="box-container" :style="box">
+          <!-- <div class="box-container" :root="colourC"></div> -->
           <div class="box"></div>
         </div>
       </section>
